@@ -4,8 +4,6 @@ class TrieNode(object):
         self.children = []
         # Is it the last character of the word.
         self.word_finished = False
-        # How many times this character appeared in the addition process
-        self.counter = 1
 
 
 def add(root, word: str):
@@ -15,10 +13,7 @@ def add(root, word: str):
         # Search for the character in the children of the current `node`
         for child in node.children:
             if child.char == char:
-                # We found it, increase the counter by 1 to keep track that another
-                # word has it as well
-                child.counter += 1
-                # And point the node to the child that contains this char
+                # Point the node to the child that contains this char
                 node = child
                 found_in_child = True
                 break
